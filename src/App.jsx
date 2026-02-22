@@ -18,6 +18,8 @@ const AdminDashboard = lazy(() => import('./pages/admin/AdminDashboard'))
 const ApiDocs = lazy(() => import('./pages/ApiDocs'))
 const Marketplace = lazy(() => import('./pages/Marketplace'))
 const BuildApp = lazy(() => import('./pages/BuildApp'))
+const Privacy = lazy(() => import('./pages/Privacy'))
+const Status = lazy(() => import('./pages/Status'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 
 function PageFallback() {

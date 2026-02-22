@@ -5,6 +5,8 @@ const footerLinks = [
   { to: '/case-studies', label: 'Case Studies', isLink: true },
   { to: '/pricing', label: 'Pricing', isLink: true },
   { to: '/docs', label: 'Docs', isLink: true },
+  { to: '/api-docs', label: 'API Docs', isLink: true },
+  { to: '/marketplace', label: 'App Marketplace', isLink: true },
   { to: '/contact', label: 'Contact', isLink: true },
   { to: '#', label: 'Status', isLink: false },
   { to: '#', label: 'Privacy', isLink: false },

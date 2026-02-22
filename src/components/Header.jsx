@@ -1,4 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
 
 const navLinks = [
   { to: '/product', label: 'Product' },
@@ -10,6 +11,7 @@ const navLinks = [
 
 export default function Header() {
   const location = useLocation()
+  const { user, isAdmin } = useAuth()
 
   return (
     <header className="header-micro">
@@ -27,9 +29,25 @@ export default function Header() {
               {label}
             </Link>
           ))}
-          <Link to="/" className="btn btn-primary btn-micro">
-            Get started
-          </Link>
+          {user ? (
+            <>
+              {isAdmin && (
+                <Link to="/admin" className="nav-link" style={{ marginRight: 'var(--space-2)' }}>
+                  Admin
+                </Link>
+              )}
+              <Link to="/" className="btn btn-primary btn-micro">
+                {user.email}
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link to="/login" className="nav-link">Log in</Link>
+              <Link to="/signup" className="btn btn-primary btn-micro">
+                Get started
+              </Link>
+            </>
+          )}
         </nav>
       </div>
     </header>

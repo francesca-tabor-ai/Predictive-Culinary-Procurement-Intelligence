@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 
@@ -6,8 +6,22 @@ export default function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
-  const { login } = useAuth()
+  const { login, user, loading } = useAuth()
   const navigate = useNavigate()
+
+  useEffect(() => {
+    if (!loading && user) navigate('/', { replace: true })
+  }, [loading, user, navigate])
+
+  if (loading || user) {
+    return (
+      <section style={{ padding: 'var(--space-24) var(--space-8)' }}>
+        <div style={{ maxWidth: '400px', margin: '0 auto', display: 'flex', justifyContent: 'center' }}>
+          <div className="loading-spinner" />
+        </div>
+      </section>
+    )
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()

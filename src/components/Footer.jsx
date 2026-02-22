@@ -1,15 +1,15 @@
 import { Link } from 'react-router-dom'
 
 const footerLinks = [
-  { to: '/product', label: 'Product', isLink: true },
-  { to: '/case-studies', label: 'Case Studies', isLink: true },
-  { to: '/pricing', label: 'Pricing', isLink: true },
-  { to: '/docs', label: 'Docs', isLink: true },
-  { to: '/api-docs', label: 'API Docs', isLink: true },
-  { to: '/marketplace', label: 'App Marketplace', isLink: true },
-  { to: '/contact', label: 'Contact', isLink: true },
-  { to: '#', label: 'Status', isLink: false },
-  { to: '#', label: 'Privacy', isLink: false },
+  { to: '/product', label: 'Product' },
+  { to: '/case-studies', label: 'Case Studies' },
+  { to: '/pricing', label: 'Pricing' },
+  { to: '/docs', label: 'Docs' },
+  { to: '/api-docs', label: 'API Docs' },
+  { to: '/marketplace', label: 'App Marketplace' },
+  { to: '/contact', label: 'Contact' },
+  { to: '/status', label: 'Status' },
+  { to: '/privacy', label: 'Privacy' },
 ]
 
 export default function Footer() {
@@ -20,17 +20,11 @@ export default function Footer() {
           PCI
         </Link>
         <div className="footer-links">
-          {footerLinks.map(({ to, label, isLink }) =>
-            isLink ? (
-              <Link key={label} to={to} className="footer-link">
-                {label}
-              </Link>
-            ) : (
-              <a key={label} href={to} className="footer-link">
-                {label}
-              </a>
-            )
-          )}
+          {footerLinks.map(({ to, label }) => (
+            <Link key={label} to={to} className="footer-link">
+              {label}
+            </Link>
+          ))}
         </div>
       </div>
       <p className="footer-copyright">

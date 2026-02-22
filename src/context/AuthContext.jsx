@@ -1,6 +1,7 @@
 import { createContext, useContext, useState, useCallback, useEffect } from 'react'
 
-const API = import.meta.env.VITE_API_URL || 'http://localhost:3001'
+// VITE_API_URL: set in production if API is on different origin. Empty = same origin (dev uses Vite proxy)
+const API = import.meta.env.VITE_API_URL ?? ''
 
 const AuthContext = createContext(null)
 

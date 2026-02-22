@@ -18,6 +18,7 @@ const AdminDashboard = lazy(() => import('./pages/admin/AdminDashboard'))
 const ApiDocs = lazy(() => import('./pages/ApiDocs'))
 const Marketplace = lazy(() => import('./pages/Marketplace'))
 const BuildApp = lazy(() => import('./pages/BuildApp'))
+const NotFound = lazy(() => import('./pages/NotFound'))
 
 function PageFallback() {
   return (
@@ -50,6 +51,8 @@ function App() {
             <Route path="/api-docs" element={<ApiDocs />} />
             <Route path="/marketplace" element={<Marketplace />} />
             <Route path="/marketplace/build" element={<BuildApp />} />
+            <Route path="/status" element={<Status />} />
+            <Route path="/privacy" element={<Privacy />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/case-studies" element={<CaseStudies />} />
             <Route path="/contact" element={<Contact />} />
@@ -58,6 +61,7 @@ function App() {
             <Route path="/admin" element={<AdminDashboard />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/admin/*" element={<Navigate to="/admin" replace />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
       </main>

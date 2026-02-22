@@ -14,11 +14,14 @@ export default function AdminCRUD({ entity }) {
   useEffect(() => {
     setLoading(true)
     api(path)
-      .then((r) => r.json())
+      .then((r) => {
+        if (!r.ok) throw new Error('Failed to fetch')
+        return r.json()
+      })
       .then(setItems)
       .catch(() => setItems([]))
       .finally(() => setLoading(false))
-  }, [entity.key])
+  }, [entity.key, path])
 
   const handleCreate = async (e) => {
     e.preventDefault()

@@ -6,12 +6,14 @@ const navLinks = [
   { to: '/case-studies', label: 'Case Studies' },
   { to: '/pricing', label: 'Pricing' },
   { to: '/docs', label: 'Docs' },
+  { to: '/api-docs', label: 'API' },
+  { to: '/marketplace', label: 'Marketplace' },
   { to: '/contact', label: 'Contact' },
 ]
 
 export default function Header() {
   const location = useLocation()
-  const { user, isAdmin } = useAuth()
+  const { user, isAdmin, logout } = useAuth()
 
   return (
     <header className="header-micro">
@@ -36,9 +38,17 @@ export default function Header() {
                   Admin
                 </Link>
               )}
-              <Link to="/" className="btn btn-primary btn-micro">
+              <span style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-text-secondary)', marginRight: 'var(--space-2)' }}>
                 {user.email}
-              </Link>
+              </span>
+              <button
+                type="button"
+                onClick={() => logout()}
+                className="btn btn-secondary btn-micro"
+                style={{ padding: 'var(--space-2) var(--space-3)' }}
+              >
+                Log out
+              </button>
             </>
           ) : (
             <>

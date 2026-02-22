@@ -6,6 +6,7 @@ import { config } from 'dotenv'
 
 import authRoutes from './routes/auth.js'
 import crudRoutes from './routes/crud.js'
+import intelligenceRoutes from './routes/intelligence.js'
 import pool from './db/pool.js'
 import { authRequired } from './middleware/auth.js'
 
@@ -21,6 +22,7 @@ app.use(express.json())
 
 app.use('/auth', authRoutes)
 app.use(crudRoutes)
+app.use(intelligenceRoutes)
 
 app.get('/api/me', authRequired, async (req, res) => {
   try {
@@ -39,4 +41,7 @@ app.get('/health', (_, res) => res.json({ ok: true }))
 
 app.listen(PORT, () => {
   console.log(`API running on port ${PORT}`)
+  if (process.env.NODE_ENV === 'production' && process.env.JWT_SECRET === 'pci-dev-secret-change-in-production') {
+    console.warn('⚠️  WARNING: Using default JWT_SECRET. Set JWT_SECRET in production!')
+  }
 })

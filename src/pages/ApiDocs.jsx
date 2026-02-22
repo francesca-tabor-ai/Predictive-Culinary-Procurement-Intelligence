@@ -1,5 +1,5 @@
 export default function ApiDocs() {
-  const baseUrl = import.meta.env.VITE_API_URL || 'https://api.pci.example.com'
+  const baseUrl = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? 'http://localhost:3001' : 'https://api.pci.example.com')
   const entities = [
     { name: 'organizations', fields: ['name', 'plan_type'], desc: 'Multi-tenant organizations' },
     { name: 'users', fields: ['email', 'password', 'name', 'role', 'organization_id'], desc: 'Platform users (user/admin roles)' },
@@ -62,7 +62,7 @@ export default function ApiDocs() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
           <EndpointRow method="POST" path="/auth/signup" body={{ email: 'string', password: 'string', name: 'string (optional)' }} desc="Create user + organization, returns JWT" />
           <EndpointRow method="POST" path="/auth/login" body={{ email: 'string', password: 'string' }} desc="Validate credentials, returns JWT" />
-          <EndpointRow method="GET" path="/api/me" auth required desc="Current user (protected)" />
+          <EndpointRow method="GET" path="/api/me" desc="Current user (protected)" />
         </div>
       </section>
 

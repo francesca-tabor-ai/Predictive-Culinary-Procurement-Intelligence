@@ -1,0 +1,82 @@
+/**
+ * Base styles — typography, reset, global
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-primary);
+  background-color: var(--color-white);
+  min-height: 100vh;
+}
+
+/* Typographic hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-text-primary);
+}
+
+h1 {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-extrabold);
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+}
+
+h3 {
+  font-size: var(--font-size-2xl);
+}
+
+h4 {
+  font-size: var(--font-size-xl);
+}
+
+p {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-loose);
+  color: var(--color-text-secondary);
+}
+
+/* Numbers & data — clear, neutral */
+.mono, .tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Links */
+a {
+  color: var(--color-accent-blue);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-accent-purple);
+}
+
+/* Selection */
+::selection {
+  background: var(--gradient-accent-subtle);
+  color: var(--color-text-primary);
+}

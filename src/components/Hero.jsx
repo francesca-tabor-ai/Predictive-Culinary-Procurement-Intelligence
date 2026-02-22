@@ -95,7 +95,7 @@ export default function Hero() {
               letterSpacing: '0.05em',
             }}
           >
-            Trusted by procurement teams at
+            Trusted by procurement teams at restaurant groups, hotels & caterers
           </p>
           <div
             style={{
@@ -120,6 +120,9 @@ export default function Hero() {
               </span>
             ))}
           </div>
+          <Link to="/case-studies" style={{ display: 'inline-block', marginTop: 'var(--space-4)', fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-semibold)', color: 'var(--color-accent-blue)' }}>
+            View case studies →
+          </Link>
         </div>
       </div>
     </section>

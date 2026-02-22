@@ -276,7 +276,7 @@ export default function Pricing() {
                 ))}
               </ul>
               <Link
-                to={plan.id === 'enterprise' ? '#' : '/pricing'}
+                to={plan.id === 'enterprise' ? '/contact' : '/pricing'}
                 className={`btn ${plan.ctaVariant === 'primary' ? 'btn-primary' : 'btn-secondary'}`}
                 style={{
                   width: '100%',

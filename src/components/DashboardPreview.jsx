@@ -127,7 +127,7 @@ export default function DashboardPreview() {
                 }}
               >
                 {[
-                  { label: 'Forecast accuracy', value: '94.2%', trend: '+'2.1% },
+                  { label: 'Forecast accuracy', value: '94.2%', trend: '+2.1%' },
                   { label: 'Waste reduction', value: '23%', trend: '−5%' },
                   { label: 'Cost savings', value: '$12.4k', trend: '+8%' },
                 ].map((stat, i) => (

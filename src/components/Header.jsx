@@ -5,6 +5,7 @@ const navLinks = [
   { to: '/case-studies', label: 'Case Studies' },
   { to: '/pricing', label: 'Pricing' },
   { to: '/docs', label: 'Docs' },
+  { to: '/contact', label: 'Contact' },
 ]
 
 export default function Header() {
